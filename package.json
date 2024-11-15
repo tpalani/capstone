@@ -7,7 +7,11 @@
     "minimatch": "^9.0.3"
   },
   "scripts": {
-    "build": "npx parcel src/index.html"
+    "build": "npx parcel build src/index.html --public-url git@github.com:tpalani/capstone.git",
+    "lint": "npx eslint src/.",
+    "test": "npx jest",
+    "deploy": "npm run build && npx gh-pages -d dist",
+    "ci": "npm run lint && npm run test && npm run deploy"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
